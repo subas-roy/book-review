@@ -1,0 +1,98 @@
+[
+    {
+        "bookId": "1",
+        "bookName": "The Silent Patient",
+        "author": "Alex Michaelides",
+        "image": "https://i.ibb.co.com/SnjpcCN/book1.png",
+        "review": "A thrilling psychological suspense novel with an unexpected twist.",
+        "totalPages": 325,
+        "rating": 4.5,
+        "category": "Thriller",
+        "tags": [
+            "Suspense",
+            "Psychological"
+        ],
+        "publisher": "Celadon Books",
+        "yearOfPublishing": 2019
+    },
+    {
+        "bookId": "2",
+        "bookName": "Where the Crawdads Sing",
+        "author": "Delia Owens",
+        "image": "https://example.com/where-the-crawdads-sing.jpg",
+        "review": "A hauntingly beautiful story blending nature, love, and mystery.",
+        "totalPages": 384,
+        "rating": 4.8,
+        "category": "Fiction",
+        "tags": [
+            "Drama",
+            "Mystery"
+        ],
+        "publisher": "G.P. Putnam's Sons",
+        "yearOfPublishing": 2018
+    },
+    {
+        "bookId": "3",
+        "bookName": "Becoming",
+        "author": "Michelle Obama",
+        "image": "https://example.com/becoming.jpg",
+        "review": "An inspiring memoir from the former First Lady of the United States.",
+        "totalPages": 448,
+        "rating": 4.9,
+        "category": "Memoir",
+        "tags": [
+            "Biography",
+            "Inspirational"
+        ],
+        "publisher": "Crown Publishing Group",
+        "yearOfPublishing": 2018
+    },
+    {
+        "bookId": "4",
+        "bookName": "Educated",
+        "author": "Tara Westover",
+        "image": "https://example.com/educated.jpg",
+        "review": "A powerful memoir about a woman\u2019s journey from a survivalist family to academia.",
+        "totalPages": 352,
+        "rating": 4.7,
+        "category": "Non-fiction",
+        "tags": [
+            "Memoir",
+            "Inspirational"
+        ],
+        "publisher": "Random House",
+        "yearOfPublishing": 2018
+    },
+    {
+        "bookId": "5",
+        "bookName": "The Night Circus",
+        "author": "Erin Morgenstern",
+        "image": "https://example.com/the-night-circus.jpg",
+        "review": "A magical and enchanting novel set in a surreal circus world.",
+        "totalPages": 512,
+        "rating": 4.3,
+        "category": "Fantasy",
+        "tags": [
+            "Fantasy",
+            "Magic"
+        ],
+        "publisher": "Doubleday",
+        "yearOfPublishing": 2011
+    },
+    {
+        "bookId": "6",
+        "bookName": "The Alchemist",
+        "author": "Paulo Coelho",
+        "image": "https://example.com/the-alchemist.jpg",
+        "review": "A philosophical tale about following your dreams and finding your destiny.",
+        "totalPages": 208,
+        "rating": 4.6,
+        "category": "Fiction",
+        "tags": [
+            "Philosophy",
+            "Adventure"
+        ],
+        "publisher": "HarperCollins",
+        "yearOfPublishing": 1988
+    }
+]
