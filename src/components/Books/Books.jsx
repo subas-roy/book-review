@@ -11,11 +11,10 @@ const Books = () => {
     .then(data => setBooks(data))
   }, [])
 
-  console.log(books)
   return (
-    <div>
-      <h2 className="play-fair font-bold text-5xl text-center">Books</h2>
-      <div className="grid grid-cols-3 gap-8">
+    <div className="my-20">
+      <h2 className="play-fair font-bold text-5xl text-center mb-12">Books</h2>
+      <div className="grid grid-cols-3 gap-12">
         {
           books.slice(0, dataLength).map(book => <Book key={book.id} book={book}></Book>)
         }
