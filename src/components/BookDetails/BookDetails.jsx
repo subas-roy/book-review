@@ -1,11 +1,50 @@
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { saveToLocalStorage } from "../../utility/localStorage";
+import { useState } from 'react';
 
 const BookDetails = () => {
   const books = useLoaderData();
   const {bookId} = useParams();
-  
+  const [read, setRead] = useState([]);
+
   const book = books.find(book => book.bookId === bookId);
+
+  const handleRead = (key, id) => {
+    const readList = localStorage.getItem(key);
+    if (!readList) {
+      saveToLocalStorage(key, id);
+      toast(`Added to read successfully!`);
+    }
+    else if (!readList.includes(id)) {
+      saveToLocalStorage(key, id);
+      toast(`Added to read successfully!`);
+    }
+    else {
+      toast(`Already exists!`);
+    }
+    setRead(() => readList)
+    console.log(readList)
+  }
+
+  const handleWishlist = (key, id) => {
+    const wishList = localStorage.getItem(key);
+    if (read.includes(id)) {
+      toast(`Already read!`)
+    }
+    else if (!wishList) {
+      saveToLocalStorage(key, id);
+      toast(`Added to wishlist successfully!`);
+    }
+    else if (!wishList.includes(id)) {
+      saveToLocalStorage(key, id);
+      toast(`Added to wishlist successfully!`);
+    }
+    else {
+      toast(`Already exists!`);
+    }
+  }
 
   return (
     <div className="grid grid-cols-2 gap-6">
@@ -47,9 +86,10 @@ const BookDetails = () => {
           </tr>
         </table>
         <div className=" flex gap-4 pt-4">
-          <Link className="btn bg-transparent border-2 border-gray-300 ">Read</Link>
-          <Link className="btn bg-[#50B1C9] text-white">Wishlist</Link>
+          <Link onClick={() => handleRead('read', bookId)} className="btn bg-transparent border-2 border-gray-300 ">Read</Link>
+          <Link onClick={() => handleWishlist('wishlist', bookId)} className="btn bg-[#50B1C9] text-white">Wishlist</Link>
         </div>
+        <ToastContainer />
       </div>
     </div>
   );
