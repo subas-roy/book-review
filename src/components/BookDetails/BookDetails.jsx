@@ -7,7 +7,6 @@ import { useState } from 'react';
 const BookDetails = () => {
   const books = useLoaderData();
   const {bookId} = useParams();
-  const [read, setRead] = useState([]);
 
   const book = books.find(book => book.bookId === bookId);
 
@@ -24,22 +23,23 @@ const BookDetails = () => {
     else {
       toast(`Already exists!`);
     }
-    setRead(() => readList)
-    console.log(readList)
+    // setRead(() => readList)
+    // console.log(read)
   }
 
   const handleWishlist = (key, id) => {
     const wishList = localStorage.getItem(key);
+    const read = localStorage.getItem('read')
     if (read.includes(id)) {
       toast(`Already read!`)
     }
     else if (!wishList) {
       saveToLocalStorage(key, id);
-      toast(`Added to wishlist successfully!`);
+      toast(`Added to read successfully!`);
     }
     else if (!wishList.includes(id)) {
       saveToLocalStorage(key, id);
-      toast(`Added to wishlist successfully!`);
+      toast(`Added to read successfully!`);
     }
     else {
       toast(`Already exists!`);
