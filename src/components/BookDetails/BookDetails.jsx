@@ -2,7 +2,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { saveToLocalStorage } from "../../utility/localStorage";
-import { useState } from 'react';
 
 const BookDetails = () => {
   const books = useLoaderData();
