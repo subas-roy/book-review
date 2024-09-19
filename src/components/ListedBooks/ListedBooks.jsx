@@ -15,13 +15,12 @@ const ListedBooks = () => {
   const [displayReadBooks, setDisplayReadBooks] = useState(readbooks);
   const [displayWishBooks, setDisplayWishBooks] = useState(wishbooks);
   
-
   const handleBooksFilter = filter => {
     if (filter === 'rating') {
       const readSortByRate = readbooks.sort((a, b) => b.rating - a.rating);
       const wishSortByRate = wishbooks.sort((a, b) => b.rating - a.rating);
       setDisplayReadBooks(readSortByRate)
-      setDisplayReadBooks(wishSortByRate)
+      setDisplayWishBooks(wishSortByRate)
     }
     else if (filter === 'totalPages') {
       const readSortByPage = readbooks.sort((a, b) => b.totalPages - a.totalPages);
@@ -70,6 +69,7 @@ const ListedBooks = () => {
         </div>
       </div>
     </div>
+
   );
 };
 
