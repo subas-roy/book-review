@@ -12,8 +12,9 @@ const ListedBooks = () => {
   const readbooks = books.filter(item => storedReadBooks.includes(item.bookId));
   const wishbooks = books.filter(item => storedWishlistBooks.includes(item.bookId));
 
-  const [displayReadBooks, setDisplayReadBooks] = useState([]);
-  const [displayWishBooks, setDisplayWishBooks] = useState([]);
+  const [displayReadBooks, setDisplayReadBooks] = useState(readbooks);
+  const [displayWishBooks, setDisplayWishBooks] = useState(wishbooks);
+  
 
   const handleBooksFilter = filter => {
     if (filter === 'rating') {
@@ -44,7 +45,7 @@ const ListedBooks = () => {
 
       <div className="text-center my-6">
         <details className="dropdown ">
-          <summary className="btn m-1">Sort By</summary>
+          <summary className="btn m-1 bg-[#23BE0A] text-white">Sort By</summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
             <li onClick={() => handleBooksFilter('rating')}><a>Rating</a></li>
             <li onClick={() => handleBooksFilter('totalPages')}><a>Number of Pages</a></li>
@@ -69,7 +70,6 @@ const ListedBooks = () => {
         </div>
       </div>
     </div>
-
   );
 };
 
