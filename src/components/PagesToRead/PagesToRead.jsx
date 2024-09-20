@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import { ResponsiveContainer, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
@@ -24,6 +25,9 @@ const PagesToRead = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Book Review | Pages to Read</title>
+      </Helmet>
       <ResponsiveContainer width="100%" aspect={3}>
         <BarChart data={readbooks}>
           <CartesianGrid strikethroughPosition="3 3"/>

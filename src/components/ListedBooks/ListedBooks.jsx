@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import ListItem from "../ListItem/ListItem";
 import WishItem from "../ListItem/wishItem";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const ListedBooks = () => {
   const books = useLoaderData();
@@ -38,6 +39,9 @@ const ListedBooks = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Book Review | Listed Books</title>
+      </Helmet>
       <div className="flex justify-around items-center py-6 bg-[#13131310] rounded-3xl">
         <h1 className="text-3xl font-bold">Books</h1>
       </div>
