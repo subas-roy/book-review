@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Book Review | Home</title>
+        <title>Book Vibe | Home</title>
       </Helmet>
       <div className="flex justify-around items-center py-12 bg-[#13131310] rounded-3xl">
         <div>

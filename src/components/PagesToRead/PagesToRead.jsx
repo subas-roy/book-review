@@ -26,7 +26,7 @@ const PagesToRead = () => {
   return (
     <div>
       <Helmet>
-        <title>Book Review | Pages to Read</title>
+        <title>Book Vibe | Pages to Read</title>
       </Helmet>
       <ResponsiveContainer width="100%" aspect={3}>
         <BarChart data={readbooks}>

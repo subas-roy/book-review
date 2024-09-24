@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { redirect, useLoaderData } from "react-router-dom";
 import ListItem from "../ListItem/ListItem";
 import WishItem from "../ListItem/wishItem";
 import { useState } from "react";
@@ -12,11 +12,12 @@ const ListedBooks = () => {
   // filter books matches ids
   const readbooks = books.filter(item => storedReadBooks.includes(item.bookId));
   const wishbooks = books.filter(item => storedWishlistBooks.includes(item.bookId));
+  // default values
+  const [displayReadBooks, setDisplayReadBooks] = useState([]);
+  const [displayWishBooks, setDisplayWishBooks] = useState([]);
+  // console.log(readbooks)
 
-  const [displayReadBooks, setDisplayReadBooks] = useState(readbooks);
-  const [displayWishBooks, setDisplayWishBooks] = useState(wishbooks);
-  
-  const handleBooksFilter = filter => {
+   const handleBooksFilter = filter => {
     if (filter === 'rating') {
       const readSortByRate = readbooks.sort((a, b) => b.rating - a.rating);
       const wishSortByRate = wishbooks.sort((a, b) => b.rating - a.rating);
@@ -40,7 +41,7 @@ const ListedBooks = () => {
   return (
     <div>
       <Helmet>
-        <title>Book Review | Listed Books</title>
+        <title>Book Vibe | Listed Books</title>
       </Helmet>
       <div className="flex justify-around items-center py-6 bg-[#13131310] rounded-3xl">
         <h1 className="text-3xl font-bold">Books</h1>
@@ -60,15 +61,21 @@ const ListedBooks = () => {
       <div role="tablist" className="tabs tabs-lifted">
         <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read" defaultChecked />
         <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-sm p-6">
+          {storedReadBooks.length === 0 && <p>No books are available</p>}
           {
+            displayReadBooks.length === 0 ?
+            readbooks.map(readItem => <ListItem key={readItem.id} readItem={readItem}></ListItem>):
             displayReadBooks.map(readItem => <ListItem key={readItem.id} readItem={readItem}></ListItem>)
           }
         </div>
 
         <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Wishlist" />
         <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-sm p-6">
+          {storedReadBooks.length === 0 && <p>No books are available</p>}
           {
-            displayWishBooks.map(wishItem => <WishItem key={wishItem.id} wishItem={wishItem}></WishItem>)
+            displayWishBooks.length === 0 ?
+            wishbooks.map(readItem => <ListItem key={readItem.id} readItem={readItem}></ListItem>):
+            displayWishBooks.map(readItem => <ListItem key={readItem.id} readItem={readItem}></ListItem>)
           }
         </div>
       </div>

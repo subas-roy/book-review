@@ -12,6 +12,7 @@ const BookDetails = () => {
 
   const handleRead = (key, id) => {
     const readList = localStorage.getItem(key);
+    
     if (!readList) {
       saveToLocalStorage(key, id);
       toast(`Added to read successfully!`);
@@ -21,35 +22,34 @@ const BookDetails = () => {
       toast(`Added to read successfully!`);
     }
     else {
-      toast(`Already exists!`);
+      toast(`Already read!`);
     }
-    // setRead(() => readList)
-    // console.log(read)
   }
 
   const handleWishlist = (key, id) => {
     const wishList = localStorage.getItem(key);
     const read = localStorage.getItem('read')
-    if (read.includes(id)) {
-      toast(`Already read!`)
-    }
-    else if (!wishList) {
+    
+    if (!wishList) {
       saveToLocalStorage(key, id);
-      toast(`Added to read successfully!`);
+      toast(`Added to wishList successfully!`);
+    }
+    else if (wishList.includes(id)) {
+      toast(`Already added to wishList!`);
     }
     else if (!wishList.includes(id)) {
       saveToLocalStorage(key, id);
-      toast(`Added to read successfully!`);
+      toast(`Added to wishList successfully!`);
     }
-    else {
-      toast(`Already exists!`);
+    else if (read.includes(id)) {
+      toast('Already read!')
     }
   }
 
   return (
     <div className="grid grid-cols-2 gap-6">
       <Helmet>
-        <title>Book Review | Book Details</title>
+        <title>Book Vibe | Book Details</title>
       </Helmet>
       <div>
         <img className="w-[425px] p-12 bg-[#13131310] rounded-md" src={book.image} alt={book.bookName} />
