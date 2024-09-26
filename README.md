@@ -1,8 +1,16 @@
 # Book Vibe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Site URL](https://lively-tarsier-354d42.netlify.app/)
 
-Currently, two official plugins are available:
+Book Vibe is a dynamic platform designed for book lovers to explore, categorize, and keep track of books they've read or want to read. Whether you are looking to sort your collection or build a wishlist, Book Vibe has you covered.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
+- Comprehensive Book Sorting: Easily sort books by rating, number of pages, or year of publishing. Choose what’s most important to you and organize your reading experience.
+
+- Read and Wishlist Tracking: Users can store and categorize books into either a ‘Read’ list or a ‘Wishlist,’ ensuring that they can keep track of their book journey.
+
+- Local Storage Integration: Saves your reading lists directly in your browser's local storage so your data persists across sessions without the need for a backend database.
+
+- Real-time Filters: Instantly apply filters to your book collection for easy sorting without page reloads or delays.
+
+- User-friendly UI/UX: A clean and intuitive interface makes navigation simple and enjoyable, allowing users to focus on their love of books.
