@@ -5,8 +5,8 @@ import { ResponsiveContainer, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, 
 const PagesToRead = () => {
   const items = useLoaderData();
   
-  const storedReadBooks = localStorage.getItem('read');
-  const readbooks = items.filter(item => storedReadBooks.includes(item.bookId));
+  const storedReadBooks = JSON.parse(localStorage.getItem('read') || '[]'); // Parse read books from localStorage
+  const readbooks = items.filter(item => storedReadBooks.includes(item.bookId)); // Filter read books
 
   const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -28,19 +28,25 @@ const PagesToRead = () => {
       <Helmet>
         <title>Book Vibe | Pages to Read</title>
       </Helmet>
-      <ResponsiveContainer width="100%" aspect={3}>
-        <BarChart data={readbooks}>
-          <CartesianGrid strikethroughPosition="3 3"/>
-          <XAxis dataKey="bookName" />
-          <YAxis dataKey="totalPages"/> 
-          <Tooltip/>
-          <Bar dataKey="totalPages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }} type="monotone" >
-            {readbooks.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-            ))}
-          </Bar>
-        </BarChart>
-      </ResponsiveContainer>
+      {
+        readbooks.length === 0 
+        ?
+        <h2 className="text-3xl text-center mt-6">No pages to read</h2>
+        :
+        <ResponsiveContainer width="100%" aspect={3}>
+          <BarChart data={readbooks}>
+            <CartesianGrid strikethroughPosition="3 3"/>
+            <XAxis dataKey="bookName" />
+            <YAxis dataKey="totalPages"/> 
+            <Tooltip/>
+            <Bar dataKey="totalPages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }} type="monotone" >
+              {readbooks.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      }
     </div>
   );
 };
