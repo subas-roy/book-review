@@ -29,20 +29,17 @@ const BookDetails = () => {
   const handleWishlist = (key, id) => {
     const wishList = localStorage.getItem(key);
     const read = localStorage.getItem('read')
-    
-    if (!wishList) {
+
+    if (read && read.includes(id)) {
+      toast('Already read!');
+    } else if (!wishList) {
       saveToLocalStorage(key, id);
       toast(`Added to wishList successfully!`);
-    }
-    else if (wishList.includes(id)) {
+    } else if (!wishList.includes(id)) {
+      saveToLocalStorage(key, id);
+      toast(`Added to wishList successfully!`);
+    } else {
       toast(`Already added to wishList!`);
-    }
-    else if (!wishList.includes(id)) {
-      saveToLocalStorage(key, id);
-      toast(`Added to wishList successfully!`);
-    }
-    else if (read.includes(id)) {
-      toast('Already read!')
     }
   }
 
